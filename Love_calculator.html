@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love cals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" href="dizzy-symbol.994x1024.png">
+</head>
+<body>
+    <style>
+        body{
+            background-color: rgb(255, 223, 228);
+        }
+        .Head i{
+            font-size: medium;
+        }
+        .Head hr{
+            width:50%;
+        }
+        #form{
+            width: 400px;
+            margin: 20vh auto 0 auto;
+            background-color: pink;
+            border-radius: 15px;
+            padding: 30px;
+        }
+        .input-group{
+            margin-bottom: 20px;
+            border-radius: 30px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+        }
+        .input-group input{
+            margin-left: 65px;
+            border-radius: 20px;
+            border: none;
+            height: 20px;
+
+        }
+        .input-group1{
+            margin-bottom: 20px;
+            border-radius: 30px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+        }
+        .input-group1 input{
+            margin-left: 5px;
+            border-radius: 20px;
+            border: none;
+            height: 20px;
+        }
+        .Account{
+            width: 100%;
+            border-radius: 10px;
+            border: 2px solid wheat;
+            height: 50px;
+            color: aliceblue;
+            background-color: black;
+            font-size: larger;
+        }
+        .output{
+            font-weight: 600;
+        }
+        @media screen and (max-width: 600px) {
+            #form{
+                width: 250px;
+            }
+            .input-group{
+                font-size: small;
+            }
+            .input-group input{
+                width: 100px;
+                margin-left: 10px;
+            }
+            .input-group1{
+                font-size: 10px;
+            }
+            .input-group1 input{
+                width: 100px;
+                margin-left: 0px;
+            }
+            .output{
+                font-size: small;
+            }
+            .Account{
+                font-size: 10px;
+            }
+        }
+    </style>
+<div class="Head">
+    <hr>
+    <center><h1><i class="fa-solid fa-heart"></i> Love cals <i class="fa-solid fa-heart"></i></h1></center>
+    <hr>
+</div>
+<div class="container">
+    <form action="connect.php" method="post" id="form">
+        <div class="input-group" >
+            ENTER YOUR NAME:<input type="text" id="name" name="Name" required="" autocomplete="off">
+        </div>
+        <div class="input-group1">
+            ENTER YOURS BF/GF NAME:<input type="text" id="Othersname" name="Othersname" required="" autocomplete="off">
+        </div>
+        <div class="output">
+            YOUR'S LOVE PERCENTAGE : <span id="result"></span>
+        </div>
+        <br>
+        <button class="Account" id="calculateButton">CALCULATE THE LOVE PERCENTAGE</button>
+    </form>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const yourNameInput = document.getElementById("name");
+    const partnerNameInput = document.getElementById("Othersname");
+    const calculateButton = document.getElementById("calculateButton");
+    const resultSpan = document.getElementById("result");
+
+    calculateButton.addEventListener("click", function() {
+        event.preventDefault();
+
+        const yourName = yourNameInput.value.toLowerCase();
+        const partnerName = partnerNameInput.value.toLowerCase();
+
+        const name = yourName + partnerName;
+        
+        const t = name.split("t").length - 1;
+        const r = name.split("r").length - 1;
+        const u = name.split("u").length - 1;
+        const e = name.split("e").length - 1;
+
+        const trueCount = t + r + u + e;
+
+        const l = name.split("l").length - 1;
+        const o = name.split("o").length - 1;
+        const v = name.split("v").length - 1;
+        const e2 = name.split("e").length - 1;
+
+        const loveCount = l + o + v + e2;
+
+        const lovePercentage = trueCount.toString() + loveCount.toString();
+
+        resultSpan.textContent = lovePercentage + "%";
+    });
+});
+</Script>
+</body>
+</html>
